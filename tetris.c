@@ -1,3 +1,5 @@
+#include "tetris.h"
+
 void init(char matrix[ROWS][COLUMN])
 {
     int i,j;

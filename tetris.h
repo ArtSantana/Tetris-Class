@@ -6,3 +6,6 @@
 #else
 # define CLEAR_SCREEN puts("\x1b[H\x1b[2J")
 #endif
+
+void init(char matrix[ROWS][COLUMN]);
+void printMatrix(char matrix[ROWS][COLUMN]);

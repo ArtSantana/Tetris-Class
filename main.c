@@ -4,8 +4,6 @@
 */
 #include "tetris.h"
 
-void init(char matrix[ROWS][COLUMN]);
-void printMatrix(char matrix[ROWS][COLUMN]);
 
 int main(void)
 {
