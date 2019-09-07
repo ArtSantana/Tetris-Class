@@ -10,20 +10,28 @@ int main(void)
     char matrix[ROWS][COLUMN];
     int posI, posJ;
 
-    posI = ROWS/2;
+    //Initial position
+    posI = 1;
     posJ = COLUMN/2;
 
+    //Initialization of matrix
     init(matrix);
+    frame(matrix);
+    
+    ShowConsoleCursor(0);
+    CLEAR_SCREEN;
 
     while(1==1)
     {
-        CLEAR_SCREEN;
-        matrix[posI][posJ] = 64;
+        gotoxy(0,0);
+        matrix[posI][posJ] = 158;
+        
         printMatrix(matrix);
-        matrix[posI][posJ] = 32;
-        while(posJ < COLUMN) posJ++;
-    }
 
+        matrix[posI][posJ] = 32;
+        if(posI < ROWS-2) posI++;
+        
+    }
     return 0; 
 }
 

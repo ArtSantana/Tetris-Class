@@ -9,3 +9,4 @@
 
 void init(char matrix[ROWS][COLUMN]);
 void printMatrix(char matrix[ROWS][COLUMN]);
+void frame(char matrix[ROWS][COLUMN]);
