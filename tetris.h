@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <conio.h>
-#define COLUMN 60
-#define ROWS 30
+#define COLUMN 20
+#define ROWS 25
 #ifdef _WIN32
 # define CLEAR_SCREEN system ("cls")
 #else

@@ -1,5 +1,7 @@
 #include "tetris.h"
 
+int block = 157;
+
 void init(char matrix[ROWS][COLUMN])
 {
     int i,j;
@@ -8,7 +10,7 @@ void init(char matrix[ROWS][COLUMN])
     {
         for(j=0; j<COLUMN; j++)
         {
-            matrix[i][j] = 32;
+            matrix[i][j] = 176;
         }
     }
     
@@ -62,12 +64,12 @@ void runtime(char matrix[ROWS][COLUMN], int posI, int posJ)
     while(1==1)
     {
         gotoxy(0,0);
-        matrix[posI][posJ] = 158;
+        matrix[posI][posJ] = block;
         
         printMatrix(matrix);
 
-        matrix[posI][posJ] = 32;
+        matrix[posI][posJ] = 176;
         if(posI < ROWS-2) posI++;
         
     }
-}
+} 
