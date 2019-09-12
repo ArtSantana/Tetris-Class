@@ -21,17 +21,7 @@ int main(void)
     ShowConsoleCursor(0);
     CLEAR_SCREEN;
 
-    while(1==1)
-    {
-        gotoxy(0,0);
-        matrix[posI][posJ] = 158;
-        
-        printMatrix(matrix);
-
-        matrix[posI][posJ] = 32;
-        if(posI < ROWS-2) posI++;
-        
-    }
+    runtime(matrix, posI, posJ);
     return 0; 
 }
 

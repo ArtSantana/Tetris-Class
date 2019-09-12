@@ -54,3 +54,20 @@ void frame(char matrix[ROWS][COLUMN])
     matrix[ROWS-1][COLUMN-1] = 188;//BOTTOM RIGHT
     
 }
+
+
+void runtime(char matrix[ROWS][COLUMN], int posI, int posJ)
+{
+    
+    while(1==1)
+    {
+        gotoxy(0,0);
+        matrix[posI][posJ] = 158;
+        
+        printMatrix(matrix);
+
+        matrix[posI][posJ] = 32;
+        if(posI < ROWS-2) posI++;
+        
+    }
+}
