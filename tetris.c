@@ -59,17 +59,46 @@ void frame(char matrix[ROWS][COLUMN])
 
 
 void runtime(char matrix[ROWS][COLUMN], int posI, int posJ)
-{
-    
+{    
     while(1==1)
     {
+        char direction = 'O';
+        /*
+        if(kbhit())
+        {
+            direction = getch();
+        }
+        */
+        posJ = moviment(direction, posJ, block);
         gotoxy(0,0);
         matrix[posI][posJ] = block;
         
         printMatrix(matrix);
+        printf("%d  %d", posJ, posI);
 
         matrix[posI][posJ] = 176;
         if(posI < ROWS-2) posI++;
         
     }
 } 
+
+int moviment(char direction, int posJ, char block)
+{
+    if(direction == 'a' | direction == 'A')
+    {
+        if(posJ-1 != block && posJ > 2)
+        {
+            return posJ-1;
+        }        
+    }
+
+    else if(direction == 'd' | direction == 'D')
+    {
+        if(posJ+1 != block && posJ < COLUMN -2)
+        {
+            return posJ+1;
+        }        
+    }    
+
+    return posJ;
+}

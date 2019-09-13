@@ -16,3 +16,5 @@ void printMatrix(char matrix[ROWS][COLUMN]);
 void frame(char matrix[ROWS][COLUMN]);
 // make the matrix runs
 void runtime(char matrix[ROWS][COLUMN], int posI, int posJ);
+// moviments
+int moviment(char direction, int posJ, char block);
