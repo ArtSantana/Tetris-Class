@@ -22,6 +22,7 @@ int main(void)
     CLEAR_SCREEN;
 
     runtime(matrix, posI, posJ);
+    
     return 0; 
 }
 

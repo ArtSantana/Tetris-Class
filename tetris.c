@@ -1,6 +1,7 @@
 #include "tetris.h"
 
 int block = 157;
+float SpeedBase = 0.25;
 
 void init(char matrix[ROWS][COLUMN])
 {
@@ -63,22 +64,29 @@ void runtime(char matrix[ROWS][COLUMN], int posI, int posJ)
     while(1==1)
     {
         char direction = 'O';
-        /*
+        
         if(kbhit())
         {
             direction = getch();
         }
-        */
-        posJ = moviment(direction, posJ, block);
+        
+        posJ = moviment(direction, posJ, block);        
         gotoxy(0,0);
         matrix[posI][posJ] = block;
         
-        printMatrix(matrix);
-        printf("%d  %d", posJ, posI);
+        printMatrix(matrix);        
 
         matrix[posI][posJ] = 176;
-        if(posI < ROWS-2) posI++;
-        
+        if(posI < ROWS-2)
+        {
+            posI = BlockSpeed(posI, direction);          
+
+        }
+        if(posI == 23 || posI+1 == block) 
+        {
+            matrix[posI][posJ] = block;
+            posI = 1;            
+        }
     }
 } 
 
@@ -86,7 +94,7 @@ int moviment(char direction, int posJ, char block)
 {
     if(direction == 'a' | direction == 'A')
     {
-        if(posJ-1 != block && posJ > 2)
+        if(posJ-1 != block && posJ > 1)
         {
             return posJ-1;
         }        
@@ -99,6 +107,45 @@ int moviment(char direction, int posJ, char block)
             return posJ+1;
         }        
     }    
-
     return posJ;
 }
+
+int BlockSpeed(int posI, char direction)
+{
+    clock_t begin;
+    double time_spent;
+    unsigned int i;
+
+    begin = clock();
+
+    for(i=0; 1; i++)
+    {
+        time_spent = (double)(clock() - begin) / CLOCKS_PER_SEC;
+        
+        if(time_spent == SpeedBase) return posI+1;
+    }
+}
+
+
+
+/*
+void FilledRow(char matrix[ROWS][COLUMN])
+{
+    int i, j, k,CounterReset = 0;
+    for(i = 0; i<ROWS; i++)
+    {
+        for(j = 0; j<COLUMN; j++)
+        {
+            if(matrix[i][j] == block) CounterReset++;
+            if(CounterReset == COLUMN-2)
+            {
+                for(k = 0; k<COLUMN-2; k++)
+                {
+                    matrix[i][k] = 32;
+                }
+            }
+        }
+        CounterReset = 0;
+    }    
+}
+*/
