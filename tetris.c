@@ -11,7 +11,7 @@ void init(char matrix[ROWS][COLUMN])
     {
         for(j=0; j<COLUMN; j++)
         {
-            matrix[i][j] = 176;
+            matrix[i][j] = 32;
         }
     }
     
@@ -76,7 +76,7 @@ void runtime(char matrix[ROWS][COLUMN], int posI, int posJ)
         
         printMatrix(matrix);        
 
-        matrix[posI][posJ] = 176;
+        matrix[posI][posJ] = 32;
         if(posI < ROWS-2)
         {
             posI = BlockSpeed(posI, direction);          
@@ -121,8 +121,11 @@ int BlockSpeed(int posI, char direction)
     for(i=0; 1; i++)
     {
         time_spent = (double)(clock() - begin) / CLOCKS_PER_SEC;
-        
-        if(time_spent == SpeedBase) return posI+1;
+        if(direction == 's' | direction == 'S')
+        {
+            return posI+1;
+        }
+        else if(time_spent == SpeedBase) return posI+1;
     }
 }
 
