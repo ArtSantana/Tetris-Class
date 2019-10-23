@@ -1,0 +1,1 @@
+gcc tetris.c display.c main.c -o tetris
